@@ -1,0 +1,45 @@
+{
+  "name": "lib-quote-scoring",
+  "version": "1.0.0",
+  "description": "Library for quote scoring calculations",
+  "main": "index.js",
+  "scripts": {
+    "ci": "npm ci",
+    "test": "standard && ava"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "{src,test}/**/*.js": [
+        "prettier-standard",
+        "git add"
+      ]
+    }
+  },
+  "ava": {
+    "require": [
+      "esm"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karhoo/lib-quote-scoring.git"
+  },
+  "bugs": {
+    "url": "https://github.com/karhoo/lib-quote-scoring/issues"
+  },
+  "homepage": "https://github.com/karhoo/lib-quote-scoring#readme",
+  "devDependencies": {
+    "ava": "^1.3.1",
+    "esm": "^3.2.20",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "prettier-standard": "^9.1.1",
+    "standard": "^12.0.1"
+  }
+}

@@ -2,7 +2,8 @@
 import com.karhoo.Constants
 
 CICD {
-  helmCharts = []
-  stepConfig = Constants.NO_SCRATCH_ENV_NO_API_TESTS
-  makeTargets = []
+  containerImages = [:]
+  containerImages["builder"] = [name: "karhoo-nodejs", tag:"0.0.1"]
+  npmRunTargets = ["ci", "test"]
+  stepConfig = Constants.NO_DOCKER_IMAGE_NO_SCRATCH_ENV_NO_API_TESTS
 }
