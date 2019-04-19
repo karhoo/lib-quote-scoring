@@ -16,10 +16,12 @@ function vehicleTypeScore (quote, config) {
     console.warn('Key "vehicle_types" is missing in config')
   } else {
     if (!config.vehicle_types[quote.vehicle_class]) {
-      console.warn(`"${quote.vehicle_class}"`, 'is missing in config.vehicle_types')
+      console.warn(
+        `"${quote.vehicle_class}"`,
+        'is missing in config.vehicle_types'
+      )
     }
   }
-
   return config.vehicle_types && config.vehicle_types[quote.vehicle_class]
 }
 
@@ -28,9 +30,12 @@ function fleetScore (quote, config) {
     console.warn('Key "fleets" is missing in config')
   } else {
     if (!config.fleets[quote.fleet_id]) {
-      console.warn('Fleet id', `"${quote.fleet_id}"`, 'is missing in config.fleets')
+      console.warn(
+        'Fleet id',
+        `"${quote.fleet_id}"`,
+        'is missing in config.fleets'
+      )
     }
   }
-  
   return config.fleets && config.fleets[quote.fleet_id]
 }
