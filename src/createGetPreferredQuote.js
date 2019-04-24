@@ -1,4 +1,5 @@
 import { calculateScore } from './calculateScore'
+import { logger } from './logger'
 
 export function createGetPreferredQuote (getScoresConfig) {
   return function getPreferredQuote (quotes) {
@@ -10,6 +11,8 @@ export function createGetPreferredQuote (getScoresConfig) {
 
     let bestScore = Number.MIN_VALUE
     let preferredQuoteIndex = null
+
+    logger(config, quotes)
 
     quotes.forEach((quote, index) => {
       const score = calculateScore(quote, config)
