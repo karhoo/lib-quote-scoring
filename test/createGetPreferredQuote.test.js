@@ -3,7 +3,7 @@ import test from 'ava'
 import { createGetPreferredQuote } from '../src/createGetPreferredQuote'
 import { calculateScore } from '../src/calculateScore'
 
-import { config, quotes } from './helpers/testData'
+import { config, quotes, quotesWithHighPrice } from './helpers/testData'
 
 const getPreferredQuote = createGetPreferredQuote(() => config)
 
@@ -31,9 +31,10 @@ test('getPreferredQuote returns null if quotes array is empty', t => {
 })
 
 test('getPreferredQuote returns quote with the highest score', t => {
-  const bestQuote = quotes.sort(
+  const getBestQuote = q => q.sort(
     (a, b) => calculateScore(b, config) - calculateScore(a, config)
   )[0]
 
-  t.is(getPreferredQuote(quotes), bestQuote)
+  t.is(getPreferredQuote(quotes), getBestQuote(quotes))
+  t.is(getPreferredQuote(quotesWithHighPrice), getBestQuote(quotesWithHighPrice))
 })

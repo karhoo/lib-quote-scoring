@@ -4,6 +4,11 @@ export const quotes = [
   { high_price: 20, vehicle_class: 'saloon', fleet_id: 'id1' }
 ]
 
+export const quotesWithHighPrice = quotes.map(i => ({
+  ...i,
+  high_price: i.high_price * 100
+}))
+
 export const config = {
   fleets: {
     id1: 5,
