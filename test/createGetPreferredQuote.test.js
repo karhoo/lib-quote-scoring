@@ -6,6 +6,9 @@ import { calculateScore } from '../src/calculateScore'
 import { config, quotes, quotesWithHighPrice } from './helpers/testData'
 
 const getPreferredQuote = createGetPreferredQuote(() => config)
+const getBestQuote = q => q.sort(
+  (a, b) => calculateScore(b, config) - calculateScore(a, config)
+)[0]
 
 test('returns getPreferredQuote function', t => {
   const getPreferredQuote = createGetPreferredQuote(() => ({}))
@@ -31,10 +34,9 @@ test('getPreferredQuote returns null if quotes array is empty', t => {
 })
 
 test('getPreferredQuote returns quote with the highest score', t => {
-  const getBestQuote = q => q.sort(
-    (a, b) => calculateScore(b, config) - calculateScore(a, config)
-  )[0]
-
   t.is(getPreferredQuote(quotes), getBestQuote(quotes))
+})
+
+test('getPreferredQuote returns quote with the highest score when scores are negative', t => {
   t.is(getPreferredQuote(quotesWithHighPrice), getBestQuote(quotesWithHighPrice))
 })
