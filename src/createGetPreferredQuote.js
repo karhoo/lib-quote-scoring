@@ -9,7 +9,7 @@ export function createGetPreferredQuote (getScoresConfig) {
       return null
     }
 
-    let bestScore = Number.MIN_VALUE
+    let bestScore = Number.MIN_SAFE_INTEGER
     let preferredQuoteIndex = null
 
     logger(config, quotes)
