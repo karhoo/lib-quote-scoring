@@ -14,14 +14,16 @@ const checkForMissingConfiguration = (
   quotes,
   quoteFieldName
 ) => {
-  if (!config[configFieldName]) {
+  const configObject = config[configFieldName]
+
+  if (!configObject) {
     console.warn(`Key "${configFieldName}" is missing in config`)
 
     return
   }
 
   const missingValues = quotes.reduce((values, quote) => {
-    if (!config[configFieldName][quote[quoteFieldName]]) {
+    if (!configObject.hasOwnProperty(quote[quoteFieldName])) {
       return [...values, quote[quoteFieldName]]
     }
 
