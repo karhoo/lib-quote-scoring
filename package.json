@@ -1,6 +1,6 @@
 {
   "name": "lib-quote-scoring",
-  "version": "1.2.0",
+  "version": "1.3.1",
   "description": "Library for quote scoring calculations",
   "main": "index.js",
   "scripts": {
