@@ -1,3 +1,5 @@
+# DEPRECATED
+
 # lib-quote-scoring
 
 Library for quote scoring calculations
